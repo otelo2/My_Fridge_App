@@ -25,22 +25,21 @@
         android:id="@+id/button_return_to_fridge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginEnd="117dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="522dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="84dp"
         android:text="Return to fridge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutProduct3" />
 
     <LinearLayout
         android:id="@+id/linearLayoutProduct"
-        android:layout_width="408dp"
+        android:layout_width="0dp"
         android:layout_height="58dp"
-        android:layout_marginStart="2dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="1dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +57,7 @@
         <TextView
             android:id="@+id/text_store"
             android:layout_width="6dp"
-            android:layout_height="58dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Oxxo"
             android:textAlignment="center"
@@ -67,7 +66,7 @@
         <Button
             android:id="@+id/button_add_to_fridge"
             android:layout_width="2dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Add to fridge"
             android:textAlignment="center"
@@ -76,11 +75,9 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutProduct2"
-        android:layout_width="408dp"
+        android:layout_width="0dp"
         android:layout_height="58dp"
-        android:layout_marginStart="1dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="2dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +95,7 @@
         <TextView
             android:id="@+id/text_store_2"
             android:layout_width="6dp"
-            android:layout_height="58dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Walmart"
             android:textAlignment="center"
@@ -107,7 +104,7 @@
         <Button
             android:id="@+id/button_add_to_fridge_2"
             android:layout_width="2dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Add to fridge"
             android:textAlignment="center"
@@ -116,11 +113,9 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutProduct3"
-        android:layout_width="408dp"
+        android:layout_width="0dp"
         android:layout_height="58dp"
-        android:layout_marginStart="1dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="2dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,7 +133,7 @@
         <TextView
             android:id="@+id/text_store_3"
             android:layout_width="6dp"
-            android:layout_height="58dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Sams"
             android:textAlignment="center"
@@ -153,5 +148,19 @@
             android:textAlignment="center"
             android:textSize="16sp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button_to_fridge_from_all_products"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="67dp"
+        android:text="Return to fridge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutProduct3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

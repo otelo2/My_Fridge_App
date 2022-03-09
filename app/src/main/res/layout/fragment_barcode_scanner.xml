@@ -16,9 +16,11 @@
         android:layout_marginStart="34dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="36dp"
+        android:layout_marginBottom="28dp"
         android:text="Point the camera to the barcode"
         android:textAlignment="center"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,19 +30,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="222dp"
+        android:layout_marginBottom="30dp"
         android:text="Make sure you are in a well lit area"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_add_new_product_screen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="339dp"
-        android:layout_height="404dp"
+        android:layout_width="335dp"
+        android:layout_height="226dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="36dp"
@@ -62,18 +66,22 @@
         android:text="Go to new product screen"
         app:layout_constraintBottom_toTopOf="@+id/button_add_existing_product_screen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
         android:id="@+id/button_add_existing_product_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="59dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="61dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="60dp"
         android:text="Go to existing product screen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_add_new_product_screen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
