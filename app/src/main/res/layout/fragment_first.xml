@@ -21,24 +21,33 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="246dp"
+        android:layout_marginBottom="18dp"
         android:text="Your fridge"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="35dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="408dp"
         android:layout_height="58dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="1dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="98dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <TextView
-            android:id="@+id/product_name"
+            android:id="@+id/product_name_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Product 1"
+            android:text="Cheese"
             android:textSize="24sp" />
 
         <TextView
@@ -57,7 +66,7 @@
             android:text="-" />
 
         <TextView
-            android:id="@+id/amount_and_min"
+            android:id="@+id/text_store"
             android:layout_width="26dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -65,7 +74,7 @@
             android:textAlignment="center" />
 
         <Button
-            android:id="@+id/button_more"
+            android:id="@+id/button_add_to_fridge"
             android:layout_width="2dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -76,16 +85,22 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="157dp"
         android:text="Scan a product"
-        tools:layout_editor_absoluteX="219dp"
-        tools:layout_editor_absoluteY="600dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button_first"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="221dp"
         android:text="Check products"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="600dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

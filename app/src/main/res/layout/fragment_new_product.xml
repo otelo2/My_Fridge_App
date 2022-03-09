@@ -8,25 +8,16 @@
     tools:context=".NewProductFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="@string/hello_blank_fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="642dp"
+        android:layout_marginTop="44dp"
         android:text="New product"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,11 +25,11 @@
         android:id="@+id/barcode_text_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="615dp"
+        android:layout_marginTop="24dp"
         android:text="Barcode: 7 501295 600126"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -46,12 +37,14 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The minimum is how many if this product you should always have in your fridge. Once the product is under this minimum, it will be added to the shopping list"
+        android:layout_marginTop="256dp"
+        android:text="The minimum is how many if this product you should always have in your fridge. Once the product is under this minimum, it will be added to the shopping list."
+        android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextProductAmount2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextProductMinimum" />
 
     <EditText
         android:id="@+id/editTextProductName"
@@ -64,6 +57,7 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textAlignment="center"
+        android:textColorHint="#78909C"
         app:layout_constraintBottom_toTopOf="@+id/editTextProductStore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,6 +74,7 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textAlignment="center"
+        android:textColorHint="#78909C"
         app:layout_constraintBottom_toTopOf="@+id/editTextDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,13 +91,14 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/editTextProductAmount2"
+        android:textColorHint="#78909C"
+        app:layout_constraintBottom_toTopOf="@+id/editTextProductMinimum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
     <EditText
-        android:id="@+id/editTextProductAmount2"
+        android:id="@+id/editTextProductMinimum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -112,13 +108,14 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textAlignment="center"
+        android:textColorHint="#78909C"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextProductAmount" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_add_new_to_fridge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="131dp"
@@ -126,11 +123,12 @@
         android:layout_marginEnd="132dp"
         android:layout_marginBottom="17dp"
         android:text="Add to fridge"
+        android:textColor="#4A148C"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextProductAmount2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextProductMinimum" />
 
     <EditText
         android:id="@+id/editTextDate"
@@ -143,6 +141,7 @@
         android:inputType="date"
         android:minHeight="48dp"
         android:textAlignment="center"
+        android:textColorHint="#78909C"
         app:layout_constraintBottom_toTopOf="@+id/editTextProductAmount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

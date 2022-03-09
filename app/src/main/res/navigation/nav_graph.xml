@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_barcodeScannerFragment"
             app:destination="@id/barcodeScannerFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_allProductsFragment"
+            app:destination="@id/allProductsFragment" />
     </fragment>
     <fragment
         android:id="@+id/firstStartFragment"
@@ -61,6 +64,15 @@
         tools:layout="@layout/fragment_existing_product" >
         <action
             android:id="@+id/action_existingProductFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allProductsFragment"
+        android:name="com.example.myfridge.AllProductsFragment"
+        android:label="fragment_all_products"
+        tools:layout="@layout/fragment_all_products" >
+        <action
+            android:id="@+id/action_allProductsFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
