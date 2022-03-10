@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="40dp"
-        android:text="The product you scanned already exists in the database, with these data. You can add it as is or modify any values"
+        android:text="The product you scanned already exists in the database, with these data. You can add it as is or modify any values."
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

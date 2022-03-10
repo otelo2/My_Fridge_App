@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <Button
-        android:id="@+id/button_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -26,6 +15,7 @@
         android:layout_marginEnd="246dp"
         android:layout_marginBottom="18dp"
         android:text="Your fridge"
+        android:textColor="#4FB286"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,40 +35,99 @@
 
         <TextView
             android:id="@+id/product_name_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100sp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Cheese"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/expiration_date"
             android:layout_width="14.5sp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="12/03/22"
             android:textSize="16sp" />
 
         <Button
             android:id="@+id/button_less"
             android:layout_width="1dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:hapticFeedbackEnabled="true"
             android:text="-" />
 
         <TextView
             android:id="@+id/text_store"
             android:layout_width=".5dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="2/1"
             android:textAlignment="center" />
 
         <Button
             android:id="@+id/button_add_to_fridge"
             android:layout_width="2dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:hapticFeedbackEnabled="true"
+            android:text="+" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/product_name_2"
+            android:layout_width="100sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Juice"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/expiration_date2"
+            android:layout_width="14.5sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="27/03/22"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_less2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hapticFeedbackEnabled="true"
+            android:text="-" />
+
+        <TextView
+            android:id="@+id/text_store2"
+            android:layout_width=".5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1/3"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/button_add_to_fridge2"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hapticFeedbackEnabled="true"
             android:text="+" />
     </LinearLayout>
 
@@ -86,11 +135,13 @@
         android:id="@+id/button_scan_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="26dp"
-        android:layout_marginBottom="157dp"
+        android:layout_marginBottom="222dp"
         android:text="Scan a product"
-        app:layout_constraintBottom_toTopOf="@+id/button_first"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_product_list" />
 
     <Button
         android:id="@+id/button_product_list"

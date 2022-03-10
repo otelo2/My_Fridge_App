@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.myfridge.databinding.FragmentBarcodeScannerBinding;
 import com.example.myfridge.databinding.FragmentExistingProductBinding;
@@ -26,7 +27,14 @@ public class BarcodeScannerFragment extends Fragment {
     ) {
 
         binding = FragmentBarcodeScannerBinding.inflate(inflater, container, false);
+
+        View rootView = inflater.inflate (R.layout.fragment_barcode_scanner, container, false);
+        ImageView imageQR = (ImageView)rootView.findViewById(R.id.image_qr);
+        imageQR.setImageResource(R.drawable.qr_placeholder);
+
         return binding.getRoot();
+
+
 
     }
 
