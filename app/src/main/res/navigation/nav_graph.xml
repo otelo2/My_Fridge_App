@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/firstStartFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.myfridge.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:label="Main Menu"
         tools:layout="@layout/fragment_first">
 
         <action
@@ -17,12 +17,15 @@
         <action
             android:id="@+id/action_FirstFragment_to_allProductsFragment"
             app:destination="@id/allProductsFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_shoppingListFragment2"
+            app:destination="@id/shoppingListFragment2" />
     </fragment>
     <fragment
         android:id="@+id/firstStartFragment"
         android:name="com.example.myfridge.FirstStartFragment"
-        android:label="fragment_first_start"
-        tools:layout="@layout/fragment_first_start" >
+        android:label="Welcome"
+        tools:layout="@layout/fragment_first_start">
         <action
             android:id="@+id/action_firstStartFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
@@ -30,8 +33,8 @@
     <fragment
         android:id="@+id/barcodeScannerFragment"
         android:name="com.example.myfridge.BarcodeScannerFragment"
-        android:label="fragment_barcode_scanner"
-        tools:layout="@layout/fragment_barcode_scanner" >
+        android:label="Barcode Scanner"
+        tools:layout="@layout/fragment_barcode_scanner">
         <action
             android:id="@+id/action_barcodeScannerFragment_to_newProductFragment"
             app:destination="@id/newProductFragment" />
@@ -40,19 +43,10 @@
             app:destination="@id/existingProductFragment" />
     </fragment>
     <fragment
-        android:id="@+id/secondFragment"
-        android:name="com.example.myfridge.SecondFragment"
-        android:label="fragment_second"
-        tools:layout="@layout/fragment_second" >
-        <action
-            android:id="@+id/action_secondFragment_to_firstStartFragment"
-            app:destination="@id/firstStartFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/newProductFragment"
         android:name="com.example.myfridge.NewProductFragment"
-        android:label="fragment_new_product"
-        tools:layout="@layout/fragment_new_product" >
+        android:label="New Product"
+        tools:layout="@layout/fragment_new_product">
         <action
             android:id="@+id/action_newProductFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
@@ -60,8 +54,8 @@
     <fragment
         android:id="@+id/existingProductFragment"
         android:name="com.example.myfridge.ExistingProductFragment"
-        android:label="fragment_existing_product"
-        tools:layout="@layout/fragment_existing_product" >
+        android:label="Existing Product"
+        tools:layout="@layout/fragment_existing_product">
         <action
             android:id="@+id/action_existingProductFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
@@ -69,10 +63,19 @@
     <fragment
         android:id="@+id/allProductsFragment"
         android:name="com.example.myfridge.AllProductsFragment"
-        android:label="fragment_all_products"
-        tools:layout="@layout/fragment_all_products" >
+        android:label="All Products"
+        tools:layout="@layout/fragment_all_products">
         <action
             android:id="@+id/action_allProductsFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingListFragment2"
+        android:name="com.example.myfridge.ShoppingListFragment"
+        android:label="Shopping List"
+        tools:layout="@layout/fragment_shopping_list" >
+        <action
+            android:id="@+id/action_shoppingListFragment2_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

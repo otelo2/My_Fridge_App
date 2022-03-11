@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.myfridge.databinding.FragmentFirstStartBinding;
+import com.example.myfridge.databinding.FragmentBarcodeScannerBinding;
 import com.example.myfridge.databinding.FragmentShoppingListBinding;
 
-public class FirstStartFragment extends Fragment {
+public class ShoppingListFragment extends Fragment {
 
-    private FragmentFirstStartBinding binding;
+    private FragmentShoppingListBinding binding;
 
     @Override
     public View onCreateView(
@@ -24,7 +24,7 @@ public class FirstStartFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstStartBinding.inflate(inflater, container, false);
+        binding = FragmentShoppingListBinding.inflate(inflater, container, false);
 
         View rootView = inflater.inflate (R.layout.fragment_barcode_scanner, container, false);
         ImageView imageQR = (ImageView)rootView.findViewById(R.id.image_qr);
@@ -39,11 +39,11 @@ public class FirstStartFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonStart.setOnClickListener(new View.OnClickListener() {
+        binding.buttonToFridgeFromShopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstStartFragment.this)
-                        .navigate(R.id.action_firstStartFragment_to_FirstFragment);
+                NavHostFragment.findNavController(ShoppingListFragment.this)
+                        .navigate(R.id.action_shoppingListFragment2_to_FirstFragment);
             }
         });
 

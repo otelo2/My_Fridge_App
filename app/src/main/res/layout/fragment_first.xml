@@ -131,28 +131,50 @@
             android:text="+" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_scan_product"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="222dp"
-        android:text="Scan a product"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="365dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/button_shopping_list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_product_list" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <Button
+            android:id="@+id/button_scan_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan a product" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button_product_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check products" />
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/button_product_list"
+        android:id="@+id/button_shopping_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="221dp"
-        android:text="Check products"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="170dp"
+        android:layout_weight="1"
+        android:text="Go to shopping list"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_scan_product"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
