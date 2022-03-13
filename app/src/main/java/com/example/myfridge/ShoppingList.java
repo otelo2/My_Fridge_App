@@ -9,4 +9,8 @@ public class ShoppingList {
     {
         return new Product("","","");
     }
+
+    public void updateShoppingList(){
+
+    }
 }

@@ -52,6 +52,26 @@ public class Database {
 
     }
 
+    public static void updateProductDatabase(Context context)
+    {
+
+    }
+
+    public static void updateFridgeDatabase(Context context)
+    {
+
+    }
+
+    public static void deleteFromProductDatabase(Context context)
+    {
+
+    }
+
+    public static void deleteFromFridgeDatabase(Context context)
+    {
+
+    }
+
     public static void getAllProducts(Context context)
     {
 
