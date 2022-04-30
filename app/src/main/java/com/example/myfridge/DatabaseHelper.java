@@ -36,18 +36,27 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String SQL_DELETE_ENTRIES_PRODUCT_SCHEMA =
             "DROP TABLE IF EXISTS " + ProductSchema.TABLE_NAME;
 
-    public DatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
+    public DatabaseHelper(Context context)
+    {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }//end constructor
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES_FRIDGE_SCHEMA);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>> Creating Fridge Database");
+        sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES_PRODUCT_SCHEMA);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>> Creating Product Database");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        // This database is only a cache for online data, so its upgrade policy is
+        // to simply to discard the data and start over
+        sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES_FRIDGE_SCHEMA);
+        sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES_PRODUCT_SCHEMA);
+        onCreate(sqLiteDatabase);
+        System.out.println(">>>>>>>>>>>>>>>>>>>> upgrading Database");
     }
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion)

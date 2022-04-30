@@ -2,9 +2,9 @@ package com.example.myfridge;
 
 public class Product {
     //Attributes
-    public String barcode;
-    public String name;
-    public String store;
+    public static String barcode;
+    public static String name;
+    public static String store;
 
     //Methods
     public Product(String barcode, String name, String store) {
@@ -18,19 +18,19 @@ public class Product {
         return new Product(barcode, name, store);
     }
 
-    public String getProductBarcode()
+    public static String getProductBarcode()
     {
-        return this.barcode;
+        return barcode;
     }
 
-    public String getProductName()
+    public static String getProductName()
     {
-        return this.name;
+        return name;
     }
 
-    public String getProductStore()
+    public static String getProductStore()
     {
-        return this.store;
+        return store;
     }
 
     public void getAllProducts()

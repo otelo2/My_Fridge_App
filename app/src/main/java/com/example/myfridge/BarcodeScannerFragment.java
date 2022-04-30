@@ -1,8 +1,10 @@
 package com.example.myfridge;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -10,15 +12,47 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.myfridge.databinding.FragmentBarcodeScannerBinding;
 import com.example.myfridge.databinding.FragmentExistingProductBinding;
 import com.example.myfridge.databinding.FragmentFirstBinding;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 
 public class BarcodeScannerFragment extends Fragment {
 
     private FragmentBarcodeScannerBinding binding;
+
+    public void openBarcodeScanner()
+    {
+        IntentIntegrator integrator = IntentIntegrator.forSupportFragment(BarcodeScannerFragment.this);
+
+        integrator.setOrientationLocked(false);
+        integrator.setPrompt("Scan product barcode");
+        integrator.setBeepEnabled(false);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+
+
+        integrator.initiateScan();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                Toast.makeText(getContext(), "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+
+                Toast.makeText(getContext(), "Scanned : " + result.getContents(), Toast.LENGTH_LONG).show();
+
+
+
+            }
+        }
+    }
 
     @Override
     public View onCreateView(
@@ -31,6 +65,8 @@ public class BarcodeScannerFragment extends Fragment {
         View rootView = inflater.inflate (R.layout.fragment_barcode_scanner, container, false);
         ImageView imageQR = (ImageView)rootView.findViewById(R.id.image_qr);
         imageQR.setImageResource(R.drawable.qr_placeholder);
+
+        openBarcodeScanner();
 
         return binding.getRoot();
 
