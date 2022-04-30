@@ -8,6 +8,8 @@ import android.os.Build;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+// Taken from our course
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class DatabaseHelper extends SQLiteOpenHelper{
 

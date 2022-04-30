@@ -79,6 +79,26 @@ public class Database {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>> New Product data inserted at row ID: " + newRowId );
     }
 
+    public static void updateProductDatabase(Context context)
+    {
+
+    }
+
+    public static void updateFridgeDatabase(Context context)
+    {
+
+    }
+
+    public static void deleteFromProductDatabase(Context context)
+    {
+
+    }
+
+    public static void deleteFromFridgeDatabase(Context context)
+    {
+
+    }
+
     public static void getAllProducts(Context context)
     {
 
