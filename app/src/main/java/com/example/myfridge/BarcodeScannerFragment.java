@@ -24,6 +24,8 @@ import com.google.zxing.integration.android.IntentResult;
 public class BarcodeScannerFragment extends Fragment {
 
     private FragmentBarcodeScannerBinding binding;
+    public String barcode;
+    private Boolean productExists;
 
     public void openBarcodeScanner()
     {
@@ -45,13 +47,59 @@ public class BarcodeScannerFragment extends Fragment {
             if(result.getContents() == null) {
                 Toast.makeText(getContext(), "Cancelled", Toast.LENGTH_LONG).show();
             } else {
+                barcode = result.getContents();
+                Toast.makeText(getContext(), "Scanned : " + barcode, Toast.LENGTH_LONG).show();
 
-                Toast.makeText(getContext(), "Scanned : " + result.getContents(), Toast.LENGTH_LONG).show();
+                productExists = checkIfProductExists(result.getContents());
+
+                if (productExists){
+                    //Give the value of the barcode to the receiving fragment
 
 
+                    Bundle args = new Bundle();
+                    args.putString("barcode", barcode);
+
+
+                    //goToExistingProductFragment();
+                }
+                else{
+                    //Give the value of the barcode to the receiving fragment
+                    Bundle args = new Bundle();
+                    args.putString("barcode", barcode);
+                    System.out.println(barcode);
+                    getParentFragmentManager().setFragmentResult("dataFromBarcodeScanner", args);
+
+
+                    goToNewProductFragment();
+                }
 
             }
         }
+    }
+
+    public Boolean checkIfProductExists(String barcode) {
+        MyDatabase db = MyDatabase.getDbInstance(getActivity());
+        Product product = db.productDao().findByBarcode(barcode);
+
+        //Check if the product from the db isn't null, has a barcode, and it is the same as the one in the db
+        if (product != null){
+            if (product.barcode != null){
+                if (product.barcode == barcode){
+                    return Boolean.TRUE;
+                }
+            }
+        }
+        return Boolean.FALSE;
+    }
+
+    public void goToNewProductFragment(){
+        NavHostFragment.findNavController(BarcodeScannerFragment.this)
+                .navigate(R.id.action_barcodeScannerFragment_to_newProductFragment);
+    }
+
+    public void goToExistingProductFragment(){
+        NavHostFragment.findNavController(BarcodeScannerFragment.this)
+                .navigate(R.id.action_barcodeScannerFragment_to_existingProductFragment);
     }
 
     @Override

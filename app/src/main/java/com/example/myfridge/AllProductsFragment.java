@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.example.myfridge.databinding.FragmentAllProductsBinding;
 import com.example.myfridge.databinding.FragmentExistingProductBinding;
 
+import java.util.List;
+
 public class AllProductsFragment extends Fragment {
 
     private FragmentAllProductsBinding binding;
@@ -26,6 +28,15 @@ public class AllProductsFragment extends Fragment {
         binding = FragmentAllProductsBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
+    }
+
+    private void initRecyclerView(){
+
+    }
+
+    private void loadProductList(){
+        MyDatabase db = MyDatabase.getDbInstance(getActivity());
+        List<Product> productList = db.productDao().getAllProducts();
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
