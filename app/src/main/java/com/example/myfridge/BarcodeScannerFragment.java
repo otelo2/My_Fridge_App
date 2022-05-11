@@ -54,13 +54,12 @@ public class BarcodeScannerFragment extends Fragment {
 
                 if (productExists){
                     //Give the value of the barcode to the receiving fragment
-
-
                     Bundle args = new Bundle();
                     args.putString("barcode", barcode);
+                    System.out.println(barcode);
+                    getParentFragmentManager().setFragmentResult("dataFromBarcodeScanner", args);
 
-
-                    //goToExistingProductFragment();
+                    goToExistingProductFragment();
                 }
                 else{
                     //Give the value of the barcode to the receiving fragment
@@ -68,7 +67,6 @@ public class BarcodeScannerFragment extends Fragment {
                     args.putString("barcode", barcode);
                     System.out.println(barcode);
                     getParentFragmentManager().setFragmentResult("dataFromBarcodeScanner", args);
-
 
                     goToNewProductFragment();
                 }
@@ -84,7 +82,7 @@ public class BarcodeScannerFragment extends Fragment {
         //Check if the product from the db isn't null, has a barcode, and it is the same as the one in the db
         if (product != null){
             if (product.barcode != null){
-                if (product.barcode == barcode){
+                if (product.barcode.equals(barcode)){
                     return Boolean.TRUE;
                 }
             }
