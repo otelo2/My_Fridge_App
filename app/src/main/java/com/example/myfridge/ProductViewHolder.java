@@ -37,6 +37,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View view) {
                 // Delete the selected product
                 deleteProductFromDatabase(barcodeItemView.getText().toString());
+                deleteProductFromFridge(barcodeItemView.getText().toString());
 
                 Navigation.findNavController(itemView).navigate(R.id.action_allProductsFragment_self);
             }
@@ -56,6 +57,14 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
 
         db.productDao().delete(product);
         Log.i("DB_DELETE", "deleteProductFromDatabase: BARCODE: " + barcode);
+    }
+
+    public void deleteProductFromFridge(String barcode) {
+        MyDatabase db = MyDatabase.getDbInstance(itemView.getContext());
+        Fridge fridge = db.fridgeDao().findByBarcode(barcode);
+
+        db.fridgeDao().delete(fridge);
+        Log.i("DB_DELETE", "deleteProductFromFridge: BARCODE: " + barcode);
     }
 
 

@@ -51,6 +51,7 @@ public class ExistingProductFragment extends Fragment {
     private void updateTextFields(){
         // Get the product
         Product product = db.productDao().findByBarcode(barcode);
+        Fridge fridge = db.fridgeDao().findByBarcode(barcode);
 
         // Get the fields to edit
         TextView barcodeText = binding.barcodeTextId3;
@@ -70,15 +71,15 @@ public class ExistingProductFragment extends Fragment {
         barcodeText.setText("Barcode: " + barcode);
         productName.setText(product.name);
         productStore.setText(product.store);
-        //productDate.setText();
-        //productAmount.setText();
-        //productMinimum.setText();
-
+        productDate.setText(fridge.expirationDate);
+        productAmount.setText(fridge.amount);
+        productMinimum.setText(fridge.minimum);
 
     }
 
     private void updateExistingProduct(){
         Product product = db.productDao().findByBarcode(barcode);
+        Fridge fridge = db.fridgeDao().findByBarcode(barcode);
 
         // Get the fields with the data
         TextView barcodeText = binding.barcodeTextId3;
@@ -90,11 +91,18 @@ public class ExistingProductFragment extends Fragment {
 
         String name = productName.getText().toString();
         String store = productStore.getText().toString();
+        String date = productDate.getText().toString();
+        String amount = productAmount.getText().toString();
+        String minimum = productMinimum.getText().toString();
 
         product.name = name;
         product.store = store;
+        fridge.expirationDate = date;
+        fridge.amount = amount;
+        fridge.minimum = minimum;
 
         db.productDao().updateProduct(product);
+        db.fridgeDao().updateFridge(fridge);
 
         Log.i("Database: ", "Updated product barcode:"+ barcode +". name: "+ name + ". store: "+ store);
     }

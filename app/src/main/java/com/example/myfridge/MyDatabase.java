@@ -6,10 +6,13 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Product.class}, version = 1)
+import com.example.myfridge.placeholder.FridgeDao;
+
+@Database(entities = {Product.class, Fridge.class}, version = 1)
 public abstract class MyDatabase extends RoomDatabase {
     //Attributes
     public abstract ProductDao productDao();
+    public abstract FridgeDao fridgeDao();
     public static MyDatabase INSTANCE;
 
     //Methods

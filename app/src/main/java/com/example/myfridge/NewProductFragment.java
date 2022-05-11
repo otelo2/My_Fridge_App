@@ -22,6 +22,7 @@ public class NewProductFragment extends Fragment {
 
     private FragmentNewProductBinding binding;
     String barcode;
+    MyDatabase db = MyDatabase.getDbInstance(getActivity());
 
     @Override
     public View onCreateView(
@@ -48,10 +49,7 @@ public class NewProductFragment extends Fragment {
     }
 
     private void saveNewProduct(String name, String store){
-        MyDatabase db = MyDatabase.getDbInstance(getActivity());
-
-
-
+        // Add the data for the product
         Product product = new Product();
         product.barcode = barcode;
         product.name = name;
@@ -62,10 +60,20 @@ public class NewProductFragment extends Fragment {
         Log.i("Database: ", "Added product barcode:"+ barcode +". name: "+ name + ". store: "+ store);
     }
 
+    private void saveNewFridge(String date, String amount, String minimum){
+        // Add the data for the fridge
+        Fridge fridge = new Fridge();
+        fridge.productBarcode = barcode;
+        fridge.expirationDate = date;
+        fridge.amount = amount;
+        fridge.minimum = minimum;
+
+        db.fridgeDao().insertFridge(fridge);
+        Log.i("Database: ", "Added fridge barcode:"+ barcode +". date: "+ date + ". amount: "+ amount + ". minimum: "+minimum);
+    }
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
 
         final EditText nameInput = binding.editTextProductName;
         final EditText storeInput = binding.editTextProductStore;
@@ -79,6 +87,9 @@ public class NewProductFragment extends Fragment {
 
                 // Add the product data to the database
                 saveNewProduct(nameInput.getText().toString(), storeInput.getText().toString());
+
+                // Add the fridge data to the database
+                saveNewFridge(dateInput.getText().toString(), amountInput.getText().toString(), minimumInput.getText().toString());
 
                 // Navigate to next screen
                 NavHostFragment.findNavController(NewProductFragment.this)
