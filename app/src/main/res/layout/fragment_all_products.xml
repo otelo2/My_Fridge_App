@@ -16,157 +16,33 @@
         android:layout_marginEnd="214dp"
         android:text="All products"
         android:textAlignment="center"
+        android:textColor="@color/mint"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_return_to_fridge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="522dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="84dp"
-        android:text="Return to fridge"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutProduct3" />
 
-    <LinearLayout
-        android:id="@+id/linearLayoutProduct"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_allProducts"
         android:layout_width="0dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11">
-
-        <TextView
-            android:id="@+id/product_name_1"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Milk"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/text_store"
-            android:layout_width="6dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Oxxo"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/button_add_to_fridge"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Add to fridge"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutProduct2"
-        android:layout_width="0dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutProduct">
-
-        <TextView
-            android:id="@+id/product_name_2"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center|center_horizontal"
-            android:text="Juice"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/text_store_2"
-            android:layout_width="6dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Walmart"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/button_add_to_fridge_2"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Add to fridge"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutProduct3"
-        android:layout_width="0dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutProduct2">
-
-        <TextView
-            android:id="@+id/product_name_3"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Bread"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/text_store_3"
-            android:layout_width="6dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Sams"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/button_add_to_fridge_3"
-            android:layout_width="2dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add to fridge"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-    </LinearLayout>
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_to_fridge_from_all_products"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        tools:listitem="@layout/recyclerview_item" />
 
     <Button
         android:id="@+id/button_to_fridge_from_all_products"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="200dp"
         android:layout_marginEnd="117dp"
         android:layout_marginBottom="67dp"
         android:text="Return to fridge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutProduct3" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

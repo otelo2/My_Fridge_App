@@ -46,4 +46,11 @@ public class Product {
 
     }
 
+    public String getProductName() {
+        return ""+this.name+" from "+this.store+" ";
+    }
+
+    public String getProductBarcode() {
+        return this.barcode;
+    }
 }

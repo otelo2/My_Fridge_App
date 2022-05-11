@@ -15,7 +15,7 @@
         android:layout_marginEnd="246dp"
         android:layout_marginBottom="18dp"
         android:text="Your fridge"
-        android:textColor="#4FB286"
+        android:textColor="@color/mint"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"

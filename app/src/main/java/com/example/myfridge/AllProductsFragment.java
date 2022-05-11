@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +28,16 @@ public class AllProductsFragment extends Fragment {
     ) {
 
         binding = FragmentAllProductsBinding.inflate(inflater, container, false);
+
+        RecyclerView recyclerView = binding.recyclerviewAllProducts;
+        final ProductListAdapter adapter = new ProductListAdapter(new ProductListAdapter.WordDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        MyDatabase db = MyDatabase.getDbInstance(getActivity());
+        List<Product> productList = db.productDao().getAllProducts();
+        adapter.submitList(productList);
+
         return binding.getRoot();
 
     }

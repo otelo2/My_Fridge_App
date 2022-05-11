@@ -38,9 +38,6 @@ public class ExistingProductFragment extends Fragment {
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 barcode = result.getString("barcode");
 
-                TextView barcodeText = binding.barcodeTextId3;
-                barcodeText.setText("Barcode: " + barcode);
-
                 // Update with the information of the product
                 updateTextFields();
 
@@ -70,6 +67,7 @@ public class ExistingProductFragment extends Fragment {
         Log.i("PRODUCT", "updateTextFields: productName: "+ product.name);
         Log.i("PRODUCT", "updateTextFields: productName: "+ product.store);
 
+        barcodeText.setText("Barcode: " + barcode);
         productName.setText(product.name);
         productStore.setText(product.store);
         //productDate.setText();
