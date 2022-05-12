@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.ImageView;
 
 import com.example.myfridge.databinding.FragmentBarcodeScannerBinding;
 import com.example.myfridge.databinding.FragmentShoppingListBinding;
+
+import java.util.List;
 
 public class ShoppingListFragment extends Fragment {
 
@@ -29,6 +33,15 @@ public class ShoppingListFragment extends Fragment {
         View rootView = inflater.inflate (R.layout.fragment_barcode_scanner, container, false);
         ImageView imageQR = (ImageView)rootView.findViewById(R.id.image_qr);
         imageQR.setImageResource(R.drawable.qr_placeholder);
+
+        RecyclerView recyclerView = binding.recyclerViewShoppingList;
+        final ShoppingListAdapter adapter = new ShoppingListAdapter(new ShoppingListAdapter.WordDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        MyDatabase db = MyDatabase.getDbInstance(getActivity());
+        List<Fridge> fridgeList = db.fridgeDao().getShoppingList();
+        adapter.submitList(fridgeList);
 
         return binding.getRoot();
 
