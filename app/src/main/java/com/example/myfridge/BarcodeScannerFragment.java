@@ -59,6 +59,9 @@ public class BarcodeScannerFragment extends Fragment {
                     System.out.println(barcode);
                     getParentFragmentManager().setFragmentResult("dataFromBarcodeScanner", args);
 
+                    MainActivity host = (MainActivity) getActivity();
+                    host.setBarcode(barcode);
+
                     goToExistingProductFragment();
                 }
                 else{
