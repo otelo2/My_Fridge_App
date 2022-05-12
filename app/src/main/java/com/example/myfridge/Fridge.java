@@ -1,6 +1,8 @@
 package com.example.myfridge;
 
 
+import android.view.View;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -29,6 +31,16 @@ public class Fridge {
 
     //Methods
     public Fridge(){};
+
+    public String getProductBarcode(){
+        return productBarcode;
+    };
+
+    public String getExpirationDate(){return expirationDate; };
+
+    public String getAmount(){return amount; };
+
+    public String getMinimum(){return minimum; };
 
     public void addToFridge(Product product)
     {

@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,19 @@ public class FirstStartFragment extends Fragment {
         View rootView = inflater.inflate (R.layout.fragment_barcode_scanner, container, false);
         ImageView imageQR = (ImageView)rootView.findViewById(R.id.image_qr);
         imageQR.setImageResource(R.drawable.qr_placeholder);
+
+        // If you screw up the databases
+        Boolean areYouSmart;
+        areYouSmart = Boolean.TRUE;
+        if (areYouSmart == Boolean.FALSE){
+            // Delete all databases
+            MyDatabase db = MyDatabase.getDbInstance(getActivity());
+            db.productDao().NukeAll();
+            db.fridgeDao().NukeAll();
+            // Make the app crash
+            String bye = null;
+            Log.i("BYE :)", "onCreateView: " + bye);
+        }
 
         return binding.getRoot();
 

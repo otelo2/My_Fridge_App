@@ -8,8 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfridge.databinding.FragmentFirstBinding;
+
+import java.util.List;
 
 public class FirstFragment extends Fragment {
 
@@ -22,6 +26,16 @@ public class FirstFragment extends Fragment {
     ) {
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
+
+        RecyclerView recyclerView = binding.recyclerviewFridge;
+        final FridgeListAdapter adapter = new FridgeListAdapter(new FridgeListAdapter.WordDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        MyDatabase db = MyDatabase.getDbInstance(getActivity());
+        List<Fridge> fridgeList = db.fridgeDao().getAllActiveProducts();
+        adapter.submitList(fridgeList);
+
         return binding.getRoot();
 
     }

@@ -17,6 +17,9 @@ public interface ProductDao {
     @Query("SELECT * FROM product" + " WHERE barcode LIKE :barcode LIMIT 1")
     Product findByBarcode(String barcode);
 
+    @Query("DELETE FROM product")
+    void NukeAll();
+
     @Insert
     void insertProduct(Product... products);
 

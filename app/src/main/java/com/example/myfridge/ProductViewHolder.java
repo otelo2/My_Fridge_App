@@ -1,5 +1,6 @@
 package com.example.myfridge;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ProductViewHolder extends RecyclerView.ViewHolder {
@@ -23,7 +23,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
         productItemView = itemView.findViewById(R.id.textView_product);
         barcodeItemView = itemView.findViewById(R.id.productBarcodeText);
         deleteProductButton = itemView.findViewById(R.id.buttonDeleteProduct);
-        addProductToFridge = itemView.findViewById(R.id.button_add_to_fridge);
+        addProductToFridge = itemView.findViewById(R.id.buttonAddToFridge);
 
     }
 
@@ -39,14 +39,29 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
                 deleteProductFromDatabase(barcodeItemView.getText().toString());
                 deleteProductFromFridge(barcodeItemView.getText().toString());
 
+                // Reload fragment
                 Navigation.findNavController(itemView).navigate(R.id.action_allProductsFragment_self);
+            }
+        });
+
+        addProductToFridge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Send the barcode to the ExistingProductFragment
+                MainActivity host = (MainActivity) view.getContext();
+                host.setBarcode(barcode);
+                Log.i("CONTEXT", "onClick: " + view.getContext().toString());
+                Log.i("BARCODE", "onClick: " + barcode);
+
+                // Go to the existing product fragment
+                Navigation.findNavController(itemView).navigate(R.id.action_allProductsFragment_to_existingProductFragment);
             }
         });
     }
 
     static ProductViewHolder create(ViewGroup parent){
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recyclerview_item, parent, false);
+                .inflate(R.layout.recyclerview_item_products, parent, false);
 
         return new ProductViewHolder(view);
     }
@@ -63,8 +78,11 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
         MyDatabase db = MyDatabase.getDbInstance(itemView.getContext());
         Fridge fridge = db.fridgeDao().findByBarcode(barcode);
 
-        db.fridgeDao().delete(fridge);
-        Log.i("DB_DELETE", "deleteProductFromFridge: BARCODE: " + barcode);
+        if (fridge != null)
+        {
+            db.fridgeDao().delete(fridge);
+            Log.i("DB_DELETE", "deleteProductFromFridge: BARCODE: " + barcode);
+        }
     }
 
 

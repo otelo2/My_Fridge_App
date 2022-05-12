@@ -6,9 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.myfridge.placeholder.FridgeDao;
-
-@Database(entities = {Product.class, Fridge.class}, version = 1)
+@Database(entities = {Product.class, Fridge.class}, version = 2)
 public abstract class MyDatabase extends RoomDatabase {
     //Attributes
     public abstract ProductDao productDao();
@@ -20,6 +18,7 @@ public abstract class MyDatabase extends RoomDatabase {
         if (INSTANCE == null){
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), MyDatabase.class, "PRODUCT_DB")
                     .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return INSTANCE;

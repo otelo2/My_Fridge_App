@@ -29,7 +29,6 @@ public class ExistingProductFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
         binding = FragmentExistingProductBinding.inflate(inflater, container, false);
 
         // Receive the barcode from the barcode scanner fragment and update the text with the barcode
@@ -43,6 +42,15 @@ public class ExistingProductFragment extends Fragment {
 
             }
         });
+
+        if (barcode==null){
+            barcode = ((MainActivity)getActivity()).getBarcode();
+
+            // Update with the information of the product
+            updateTextFields();
+        }
+
+
 
         return binding.getRoot();
 
@@ -61,19 +69,26 @@ public class ExistingProductFragment extends Fragment {
         EditText productAmount = binding.editTextExistingProductAmount;
         EditText productMinimum = binding.editTextExistingProductMinimum;
 
-
-
         // Update the fields with the value from the db
-        //barcodeText.setText(barcode);
         Log.i("PRODUCT", "updateTextFields: productName: "+ product.name);
         Log.i("PRODUCT", "updateTextFields: productName: "+ product.store);
 
+        //Set all the values into the fields
         barcodeText.setText("Barcode: " + barcode);
-        productName.setText(product.name);
-        productStore.setText(product.store);
-        productDate.setText(fridge.expirationDate);
-        productAmount.setText(fridge.amount);
-        productMinimum.setText(fridge.minimum);
+        if (product != null){
+            if (product.name != null)
+                productName.setText(product.name);
+            if (product.store != null)
+                productStore.setText(product.store);
+        }
+        if (fridge != null){
+            if (fridge.expirationDate != null)
+                productDate.setText(fridge.expirationDate);
+            if (fridge.amount != null)
+                productAmount.setText(fridge.amount);
+            if (fridge.minimum != null)
+                productMinimum.setText(fridge.minimum);
+        }
 
     }
 
@@ -95,14 +110,27 @@ public class ExistingProductFragment extends Fragment {
         String amount = productAmount.getText().toString();
         String minimum = productMinimum.getText().toString();
 
+        // Check if  the fridge exists
+        if (fridge != null){
+            fridge.expirationDate = date;
+            fridge.amount = amount;
+            fridge.minimum = minimum;
+
+            db.fridgeDao().updateFridge(fridge);
+        }
+        else {
+            Fridge fridgeNew = new Fridge();
+            fridgeNew.productBarcode = barcode;
+            fridgeNew.expirationDate = date;
+            fridgeNew.amount = amount;
+            fridgeNew.minimum = minimum;
+
+            db.fridgeDao().insertFridge(fridgeNew);
+        }
+
         product.name = name;
         product.store = store;
-        fridge.expirationDate = date;
-        fridge.amount = amount;
-        fridge.minimum = minimum;
-
         db.productDao().updateProduct(product);
-        db.fridgeDao().updateFridge(fridge);
 
         Log.i("Database: ", "Updated product barcode:"+ barcode +". name: "+ name + ". store: "+ store);
     }

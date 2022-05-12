@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    public String barcode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public String getBarcode(){
+        return barcode;
+    }
+
+    public void setBarcode(String barcode){
+        this.barcode = barcode;
     }
 
 }
